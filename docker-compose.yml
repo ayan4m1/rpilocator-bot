@@ -1,0 +1,17 @@
+services:
+  bot:
+    image: rpilocator-bot
+    build: ./
+    restart: always
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      - RPI_LOG_LEVEL
+      - RPI_LOG_TIME_FMT
+      - RPI_SMTP_HOSTNAME
+      - RPI_SMTP_PORT
+      - RPI_SMTP_SECURE
+      - RPI_SMTP_USERNAME
+      - RPI_SMTP_PASSWORD
+      - RPI_POLLING_CATEGORY
+      - RPI_POLLING_INTERVAL
