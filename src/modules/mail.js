@@ -12,10 +12,10 @@ const transport = createTransport({
   }
 });
 
-export const sendNotification = (title) =>
+export const sendNotification = ({ title, link }) =>
   transport.sendMail({
     from: 'No-Reply <noreply@bulletlogic.com>',
     to: 'ayan4m1@gmail.com',
-    subject: 'Pi Located!',
-    text: title
+    subject: title,
+    text: link
   });

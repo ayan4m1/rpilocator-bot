@@ -73,7 +73,7 @@ const poll = async () => {
 
       log.info(`Notifying about ${item.title}!`);
 
-      await sendNotification(item.title);
+      await sendNotification(item);
     }
   } catch (error) {
     log.error(error.message);
