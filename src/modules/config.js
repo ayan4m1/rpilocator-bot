@@ -8,12 +8,12 @@ export const logging = {
 export const smtp = {
   hostname: process.env.RPI_SMTP_HOSTNAME || 'localhost',
   port: parseInt(process.env.RPI_SMTP_PORT || '25', 10),
-  secure: process.env.RPI_SMTP_SECURE || true,
+  secure: process.env.RPI_SMTP_SECURE.toLowerCase() === 'true' || false,
   username: process.env.RPI_SMTP_USERNAME,
   password: process.env.RPI_SMTP_PASSWORD
 };
 
 export const polling = {
-  category: process.env.RPI_POLLING_CATEGORY,
-  intervalMs: parseInt(process.env.RPI_POLLING_INTERVAL || '240000', 10)
+  categories: process.env.RPI_POLLING_CATEGORIES.split(/,/),
+  interval: parseInt(process.env.RPI_POLLING_INTERVAL || '240000', 10)
 };

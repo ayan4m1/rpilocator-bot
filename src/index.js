@@ -33,8 +33,10 @@ const poll = async () => {
       throw new Error('No items in RSS response!');
     }
 
-    if (config.category) {
-      items = items.filter((item) => item.category.includes(config.category));
+    if (config.categories.length) {
+      items = items.filter((item) =>
+        config.categories.every((category) => item.category.includes(category))
+      );
     }
 
     if (!items.length) {
@@ -80,4 +82,4 @@ const poll = async () => {
 };
 
 poll();
-setInterval(poll, config.intervalMs);
+setInterval(poll, config.interval);
